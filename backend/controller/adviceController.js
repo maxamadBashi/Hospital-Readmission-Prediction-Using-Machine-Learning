@@ -3,6 +3,7 @@ const Advice = require('../models/advice.js');
 // Get advice by diagnosis
 exports.getAdviceByDiagnosis = async (req, res) => {
   try {
+    
     const { diagnosis } = req.params;
     const advice = await Advice.findOne({ diagnosis });
     if (!advice) return res.status(404).json({ error: 'Advice not found' });
